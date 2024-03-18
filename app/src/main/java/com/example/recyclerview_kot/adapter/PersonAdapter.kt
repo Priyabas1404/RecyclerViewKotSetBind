@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview_kot.databinding.ItemNamesBinding
 import com.example.recyclerview_kot.model.Names
+import androidx.databinding.library.baseAdapters.BR
 
 class PersonAdapter(private val personNameList: ArrayList<Names>) : RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
 
@@ -16,15 +17,12 @@ class PersonAdapter(private val personNameList: ArrayList<Names>) : RecyclerView
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(personNameList[position])
+        holder.binding.setVariable(BR.namesModel, personNameList[position])
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = personNameList.size
 
-    class ViewHolder (private val binding: ItemNamesBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(names: Names) {
-            binding.namesModel = names
-            binding.executePendingBindings()
-        }
+    class ViewHolder (val binding: ItemNamesBinding) : RecyclerView.ViewHolder(binding.root){
     }
 }

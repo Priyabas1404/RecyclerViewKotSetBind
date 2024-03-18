@@ -1,5 +1,7 @@
 plugins {
+    id 'kotlin-kapt'
     id 'com.android.application'
+    id 'kotlin-parcelize'
     id 'org.jetbrains.kotlin.android'
 }
 
@@ -28,7 +30,8 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    buildFeatures{
+    buildFeatures {
+        viewBinding true
         dataBinding true
     }
 
