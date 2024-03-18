@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val name_age1 = Names(getString(R.string.name1), 31)
-        val name_age2 = Names(getString(R.string.name2), 35)
-        val name_age3 = Names(getString(R.string.name3), 39)
+        val name_age1 = Names(getString(R.string.name1), "31")
+        val name_age2 = Names(getString(R.string.name2), "35")
+        val name_age3 = Names(getString(R.string.name3), "39")
 
-        val personList = arrayListOf<Names>(name_age1, name_age2, name_age3)
+        val personList = arrayListOf(name_age1, name_age2, name_age3)
 
         adapter = PersonAdapter(personList)
 

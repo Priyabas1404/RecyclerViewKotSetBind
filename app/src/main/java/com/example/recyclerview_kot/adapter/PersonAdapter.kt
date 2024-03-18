@@ -22,9 +22,9 @@ class PersonAdapter(private val personNameList: ArrayList<Names>) : RecyclerView
     override fun getItemCount() = personNameList.size
 
     class ViewHolder (private val binding: ItemNamesBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(name: Names) {
-            binding.name1.text = name.name
-            binding.age1.text = name.age.toString()
+        fun bind(names: Names) {
+            binding.namesModel = names
+            binding.executePendingBindings()
         }
     }
 }
